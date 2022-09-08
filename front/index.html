@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Caixa</title>
+</head>
+<body onload="carregar()">
+    <div class="page">
+        <h1>Livro Caixa</h1>
+        <hr>
+        <label for="cars">Filtro:</label>
+        <select name="datas" id="datas" onchange="filtrar(this.value)">
+        </select>
+        <span>Novo Lançamento</span>
+        <button class="btnAdd" onclick="toggleModal()">+</button>
+        <hr>
+        <div class="tables">
+            <div class="table-deb">
+                <b>Débito</b>
+                <table id="tableDeb">
+                    <thead>
+                        <tr>
+                            <th>N-Lançamento</th>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="modelo">
+                            <td id="nLanc">1</td>
+                            <td id="data">2022-09-08</td>
+                            <td id="desc">Negoico</td>
+                            <td id="valor">92</td>
+                            <td id="tipo">Saída</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-cre">
+                <b>Crédito</b>
+                <table id="tableCre">
+                    <thead>
+                        <tr>
+                            <th>N-Lançamento</th>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr>
+        <b>Saldo acumulado: R$ <span id="saldo"></span></b>
+    </div>
+
+    <div class="screen-lock modelo" onclick="toggleModal()"></div>
+    <div class="modal modelo">
+        <div class="modal-cont">
+            <button id="close" onclick="toggleModal()">x</button>
+            <h2>Criar Novo Lançamento</h2>
+            <hr>
+            <div class="modal-body">
+                <div class="form-control">
+                    <label for="desc">Descrição</label>
+                    <input type="text" name="desc" id="inpDesc">
+                </div>
+                <div class="form-control">
+                    <label for="tipo">Tipo</label>
+                    <select name="tipo" id="inpTipo">
+                        <option value="D">Saída</option>
+                        <option value="C">Entrada</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="valor">Valor</label>
+                    <input type="number" name="valor" id="inpValor">
+                </div>
+            </div>
+            <hr>
+            <button class="cadastrar" onclick="cadastrar()">Enviar</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
