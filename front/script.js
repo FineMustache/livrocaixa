@@ -52,6 +52,11 @@ function carregar() {
 
 function filtrar(data) {
     if (data == "all") {
+        let modelo = document.querySelector(".modelo").cloneNode(true)
+
+            tableDeb.innerHTML = ""
+            tableDeb.appendChild(modelo)
+            tableCre.innerHTML = ""
         carregar()
     } else {
         let saldo = 0.0
